@@ -767,6 +767,13 @@ int url_savename(lien_adrfilsave *const afs,
   // ajouter nom du site éventuellement en premier
   if (opt->savename_type == -1) {       // utiliser savename_userdef! (%h%p/%n%q.%t)
     const char *a = StringBuff(opt->savename_userdef);
+    if (StringLength(opt->savename_userdef_html) > 0 &&
+         ((ext_chg != 0) ? (ishtml_ext(ext) == 1) : (ishtml(opt, fil) == 1))) {
+      a = StringBuff(opt->savename_userdef_html);
+      hts_log_print(opt, LOG_DEBUG, "Using userdef_html: %s", a);
+    } else {
+      hts_log_print(opt, LOG_DEBUG, "Using userdef: %s", a);
+    }
     char *b = afs->save;
 
     /*char *nom_pos=NULL,*dot_pos=NULL;  // Position nom et point */

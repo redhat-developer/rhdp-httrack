@@ -720,6 +720,7 @@ void help(const char *app, int more) {
   infomsg("  '%q' small query string MD5 (16 bits, 4 ascii bytes)");
   infomsg("     '%s?' Short name version (ex: %sN)");
   infomsg("  '%[param]' param variable in query string");
+  infomsg("  '?html?' Use the following structure pattern for HTML files only");
   infomsg
     ("  '%[param:before:after:empty:notfound]' advanced variable extraction");
   infomsg("Details: User-defined option N and advanced variable extraction");

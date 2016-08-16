@@ -328,6 +328,7 @@ struct httrackp {
   int savename_83;              // conversion 8-3 pour les noms de fichiers
   int savename_type;            // type de noms: structure originale/html-images en un seul niveau
   String savename_userdef;      // structure userdef (ex: %h%p/%n%q.%t)
+  String savename_userdef_html; // structure userdef for HTML files (ex: %h%p/%n%q.%t) /* XXX added */
   int savename_delayed;         // delayed type check
   int delayed_cached;           // delayed type check can be cached to speedup updates
   int mimehtml;                 // MIME-html
