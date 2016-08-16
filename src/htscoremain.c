@@ -1380,11 +1380,23 @@ static int hts_main_internal(int argc, char **argv, httrackp * opt) {
                   htsmain_free();
                   return -1;
                 }
-                StringCopy(opt->savename_userdef, argv[na]);
-                if (StringLength(opt->savename_userdef) > 0)
-                  opt->savename_type = -1;      // userdef!
-                else
-                  opt->savename_type = 0;       // -N "" : par défaut
+                const char html_key[] = "?html?";
+                const int html_key_len = strlen(html_key);
+                if (strncmp(argv[na], html_key, html_key_len) == 0) {
+                  // Starts with HTML indicator, so is structure for HTML pages
+                  const char* userdef_html = argv[na] + html_key_len;
+                  StringCopy(opt->savename_userdef_html, userdef_html);
+                  if (StringLength(opt->savename_userdef_html) > 0) {
+                     opt->savename_type = -1;      // userdef!
+                     printf("Got HTML file save pattern: '%s'\n", userdef_html);
+                  }  
+                } else {
+                  StringCopy(opt->savename_userdef, argv[na]);
+                  if (StringLength(opt->savename_userdef) > 0)
+                    opt->savename_type = -1;      // userdef!
+                  else
+                    opt->savename_type = 0;       // -N "" : par défaut  
+                }
               }
             } else {
               sscanf(com + 1, "%d", &opt->savename_type);
