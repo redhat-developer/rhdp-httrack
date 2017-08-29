@@ -1,3 +1,10 @@
+## RHDP HTTrack Fork
+
+This fork of HTTrack is used by the RHDP project to facilitate site export with a known directory structure. It applies the patch described at [this](https://www.aczoom.com/archive-2016/blog/2014-11-27/creating-a-static-drupal-site/) location.
+
+The branch in use by the project is titled 'rhd-patch-for-export'.
+
+
 # HTTrack Website Copier - Development Repository
 
 ## About
